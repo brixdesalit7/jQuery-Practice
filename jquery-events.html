@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    * { 
+        line-height: 45px;
+    }
+</style>
+<body>
+    <div id="selectID" class="selectclass">
+        <p id="selectMe">Hello</p>
+        <p class="selectMe">Hello</p>
+        <p id="changeStyle">Hello Again</p>
+        <p id="hover">hover me i will change</p> 
+    </div>
+
+    Name: <input type="text" name="fullname"><br>
+    Email: <input type="text" name="email">
+
+    <p id="multiEVE">I have one or more events</p>
+    <script>
+        $(document).ready(function(){
+            
+            // CLICK EVENT
+            // increase font-size onclick event
+            $('#selectMe').click(function() {
+                $(this).css("font-size", "60px");
+            });
+            
+            // DOUBLE CLICK EVENT 
+            // hide element on double click
+            $('.selectMe').dblclick(function() {
+                $(this).hide();
+            });
+
+            // MOUSEENTER EVENT
+            // change color of element when mouse point to element
+            $('#changeStyle').mouseenter(function() {
+                $(this).css("color","red");
+            });
+
+            // increase the font size when mouse leave the element
+            // MOUSELEAVE EVENT
+            $('#changeStyle').mouseleave(function() {
+                $(this).css("font-size", "50px");
+            });
+
+            // HOVER
+            // takes two function
+            // change font-size when hover
+            // change font size when mouse leave element
+            $("#hover").hover(function() {
+                $(this).text("You hover me!").css("font-size","50px")
+            },function() {
+                $(this).text("Bye Bye :(((").css("font-size","30px")
+            })
+
+            // FOCUS EVENT
+            // chamge background color of form when focus
+            $("input").focus(function() {
+                $(this).css("background-color", "green")
+            })
+
+            // BLUR EVENT
+            // change background color when not focus
+            $("input").blur(function() {
+                $(this).css("background-color", "white");
+            })
+
+            // ON METHOD
+            // attach one or more event handlers
+            $("#multiEVE").on({
+                mouseenter: function() {
+                    $(this).text("You enter to element").css("font-size","40px")
+                },
+                mouseleave: function() {
+                    $(this).text("You leave to element").css("font-size","30px")
+                },
+                click : function () {
+                    $(this).css("background-color", "red").text("You clicked me");
+                }
+            })
+        });
+    </script>
+</body>
+</html>

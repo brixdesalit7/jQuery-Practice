@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="selectID" class="selectclass">
+        <p id="selectMe">Hello</p>
+        <p class="selectMe">Hello</p>
+        <p>Hello</p>
+        <p>Hello</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // select all elements * 
+            $('*').css('background-color', 'silver');
+
+            // select element using id
+            $('#selectMe').css("color","red");
+            
+            // select element using class
+            $('.selectMe').css("color", "blue");
+
+            // select id selectclass with class selectMe
+            $('.selectclass .selectMe').css("border","2px solid white");
+
+            // select even elements
+            $('p:even').css("border", "5px dashed yellow");
+
+            // select odd elements
+            $('p:odd').css("border", "5px dashed red");
+        });
+    </script>
+</body>
+</html>
